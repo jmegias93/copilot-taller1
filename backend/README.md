@@ -32,6 +32,7 @@ Desde la raíz del proyecto:
 
 ```bash
 export JWT_SECRET_KEY="una-clave-segura-de-32-caracteres-minimo"
+export JWT_ADMIN_PASSWORD="admin123"
 docker compose up --build
 ```
 

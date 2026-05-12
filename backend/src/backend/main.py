@@ -6,7 +6,9 @@ import jwt
 from fastapi import Depends, FastAPI, Header, HTTPException, status
 from pydantic import BaseModel
 
-JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", secrets.token_urlsafe(48))
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+if not JWT_SECRET_KEY:
+    raise RuntimeError("JWT_SECRET_KEY environment variable must be set")
 JWT_ALGORITHM = "HS256"
 TOKEN_EXPIRATION_SECONDS = 300
 VALID_USERNAME = os.getenv("JWT_ADMIN_USERNAME", "admin")

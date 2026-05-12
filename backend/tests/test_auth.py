@@ -1,5 +1,9 @@
+import os
+
 import jwt
 from fastapi.testclient import TestClient
+
+os.environ.setdefault("JWT_SECRET_KEY", "test-secret-key-with-at-least-32-characters")
 
 from backend.main import JWT_ALGORITHM, JWT_SECRET_KEY, TOKEN_EXPIRATION_SECONDS, app
 
