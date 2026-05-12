@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta, timezone
 import os
+import secrets
 
 import jwt
 from fastapi import Depends, FastAPI, Header, HTTPException, status
@@ -43,7 +44,9 @@ def _get_bearer_token(authorization: str = Header(...)) -> str:
 
 @app.post("/token", response_model=TokenResponse)
 def create_token(credentials: LoginRequest) -> TokenResponse:
-    if credentials.username != VALID_USERNAME or credentials.password != VALID_PASSWORD:
+    username_ok = secrets.compare_digest(credentials.username, VALID_USERNAME)
+    password_ok = secrets.compare_digest(credentials.password, VALID_PASSWORD)
+    if not username_ok or not password_ok:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid credentials",
@@ -62,7 +65,7 @@ def refresh_token(token: str = Depends(_get_bearer_token)) -> TokenResponse:
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Invalid token payload",
             )
-    except jwt.PyJWTError as exc:
+    except jwt.exceptions.PyJWTError as exc:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid or expired token",
