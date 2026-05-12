@@ -1,0 +1,138 @@
+.app-shell {
+  min-height: 100vh;
+  background: var(--colors-canvas-parchment);
+  color: var(--colors-ink);
+}
+
+.global-nav {
+  height: 44px;
+  background: var(--colors-surface-black);
+  color: var(--colors-on-dark);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.sub-nav-frosted {
+  height: 52px;
+  background: rgb(245 245 247 / 80%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgb(0 0 0 / 8%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.sub-nav-frosted strong {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0.231px;
+}
+
+.content {
+  min-height: calc(100vh - 96px);
+  display: grid;
+  place-items: center;
+  padding: 48px 16px;
+}
+
+.card {
+  width: min(100%, 420px);
+  border: 1px solid var(--colors-hairline);
+  border-radius: 18px;
+  background: var(--colors-canvas);
+  padding: 24px;
+}
+
+.card h1 {
+  margin: 0 0 12px;
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: -0.374px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  font-size: 17px;
+  line-height: 1.47;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.form label {
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.224px;
+}
+
+.form input {
+  border: 1px solid var(--colors-hairline);
+  border-radius: 9999px;
+  font-size: 17px;
+  line-height: 1.47;
+  padding: 11px 16px;
+}
+
+.form input:focus-visible,
+.button-primary:focus-visible,
+.button-secondary-pill:focus-visible {
+  outline: 2px solid var(--colors-primary-focus);
+  outline-offset: 2px;
+}
+
+.error-message {
+  margin: 0;
+  color: #d40000;
+  font-size: 14px;
+}
+
+.button-primary,
+.button-secondary-pill {
+  border-radius: 9999px;
+  padding: 11px 22px;
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.button-primary {
+  border: 1px solid var(--colors-primary);
+  background: var(--colors-primary);
+  color: #fff;
+}
+
+.button-secondary-pill {
+  border: 1px solid var(--colors-primary);
+  background: transparent;
+  color: var(--colors-primary);
+}
+
+.button-primary:active,
+.button-secondary-pill:active {
+  transform: scale(0.95);
+}
+
+.button-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 834px) {
+  .global-nav,
+  .sub-nav-frosted {
+    padding: 0 16px;
+  }
+
+  .sub-nav-frosted strong {
+    font-size: 18px;
+  }
+}

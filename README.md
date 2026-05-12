@@ -1,13 +1,12 @@
 # copilot-taller1
 
-Este repositorio incluye una API en `backend/` escrita en Python + FastAPI para un caso de uso de JWT.
+Este repositorio incluye:
 
-## Estructura
-
-- `backend/`: aplicación FastAPI gestionada con Poetry.
-- `backend/Dockerfile`: imagen de la API.
-- `docker-compose.yml`: despliegue de la API con Docker Compose.
+- `backend/`: API en Python + FastAPI para autenticación JWT.
+- `frontend/`: aplicación React con login y página de bienvenida protegida.
+- `docker-compose.yml`: despliegue de la API backend con Docker Compose.
 
 ## Uso
 
-Revisa `backend/README.md` para instrucciones completas de instalación, ejecución y consumo de endpoints.
+- Revisa `backend/README.md` para ejecutar la API.
+- Revisa `frontend/README.md` para ejecutar la interfaz web.

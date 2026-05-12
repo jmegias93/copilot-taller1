@@ -1,0 +1,25 @@
+:root {
+  --colors-primary: #0066cc;
+  --colors-primary-focus: #0071e3;
+  --colors-canvas: #ffffff;
+  --colors-canvas-parchment: #f5f5f7;
+  --colors-surface-black: #000000;
+  --colors-ink: #1d1d1f;
+  --colors-on-dark: #ffffff;
+  --colors-hairline: #e0e0e0;
+
+  font-family: 'SF Pro Text', 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--colors-ink);
+  background: var(--colors-canvas-parchment);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
