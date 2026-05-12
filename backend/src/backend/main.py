@@ -8,8 +8,8 @@ from pydantic import BaseModel
 JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "change-this-secret-key-at-least-32ch")
 JWT_ALGORITHM = "HS256"
 TOKEN_EXPIRATION_SECONDS = 300
-VALID_USERNAME = "admin"
-VALID_PASSWORD = "admin123"
+VALID_USERNAME = os.getenv("JWT_ADMIN_USERNAME", "admin")
+VALID_PASSWORD = os.getenv("JWT_ADMIN_PASSWORD", "admin123")
 
 app = FastAPI(title="JWT Demo API")
 

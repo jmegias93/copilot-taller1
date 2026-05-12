@@ -31,6 +31,7 @@ poetry run uvicorn backend.main:app --reload
 Desde la raíz del proyecto:
 
 ```bash
+export JWT_SECRET_KEY="una-clave-segura-de-32-caracteres-minimo"
 docker compose up --build
 ```
 
