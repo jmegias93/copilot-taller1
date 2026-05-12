@@ -6,7 +6,7 @@ import jwt
 from fastapi import Depends, FastAPI, Header, HTTPException, status
 from pydantic import BaseModel
 
-JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "change-this-secret-key-at-least-32ch")
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", secrets.token_urlsafe(48))
 JWT_ALGORITHM = "HS256"
 TOKEN_EXPIRATION_SECONDS = 300
 VALID_USERNAME = os.getenv("JWT_ADMIN_USERNAME", "admin")
@@ -65,7 +65,7 @@ def refresh_token(token: str = Depends(_get_bearer_token)) -> TokenResponse:
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Invalid token payload",
             )
-    except jwt.exceptions.PyJWTError as exc:
+    except (jwt.exceptions.ExpiredSignatureError, jwt.exceptions.InvalidTokenError) as exc:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid or expired token",
